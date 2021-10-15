@@ -5,7 +5,108 @@ Dashboard
 ![Dashboard_baru](https://user-images.githubusercontent.com/53652867/137503223-18320d59-41b4-4867-8491-ddf19f53cfc7.png)
 ![79924027-05124900-8461-11ea-8d77-3b2950e38bfe](https://user-images.githubusercontent.com/53652867/137503497-5c15caad-8bb8-4cbb-b031-dabcb07e3792.png)
 
+Halaman Produk
+![produk](https://user-images.githubusercontent.com/53652867/137503746-9dc0bdda-0141-4c81-ab9e-46ad47aab28a.png)
 
+Tambah Produk
+![tambah produk](https://user-images.githubusercontent.com/53652867/137503828-b25782d9-dc18-4666-b515-614c6fe77124.png)
+
+Edit Produk
+![edit produk](https://user-images.githubusercontent.com/53652867/137503922-3bbb797c-82ac-4eda-9510-97ae72dd6ddb.png)
+
+Hapus Produk
+![hapus produk](https://user-images.githubusercontent.com/53652867/137503983-3be77d25-6deb-40a6-8a46-4f69e287d7a9.png)
+
+Halaman Kategori Produk
+![kategori](https://user-images.githubusercontent.com/53652867/137504087-29267ba4-354c-4e7d-a5ef-0eadebbe6c51.png)
+
+Tambah Kategori Produk
+![tambah kategori](https://user-images.githubusercontent.com/53652867/137504205-f767c2be-921d-4095-96a9-95063626a673.png)
+
+Edit Kategori Produk
+![edit kategori](https://user-images.githubusercontent.com/53652867/137504262-8ad0c6d2-eaed-4cfc-81a7-78789660f305.png)
+
+Halaman Satuan Produk
+![satuan](https://user-images.githubusercontent.com/53652867/137504348-ecd1c4fe-e3b6-4cca-8cfb-3ab453bf6eba.png)
+
+Tambah Satuan Produk
+![Tambah Satuan](https://user-images.githubusercontent.com/53652867/137504459-da5d0d8a-0960-49f0-a855-93f3943a1b29.png)
+
+Edit Satuan Produk
+![edit satuan](https://user-images.githubusercontent.com/53652867/137504493-e95d03ee-a79c-4655-ae61-b29dd7d646f5.png)
+
+Halaman Suppliner Produk
+![supplier](https://user-images.githubusercontent.com/53652867/137504598-702f328e-e7a8-4605-87b1-c66f702894cf.png)
+
+Tambah Data Suppliner
+![tambah supplier](https://user-images.githubusercontent.com/53652867/137504658-362b6d67-6efb-46dd-bb91-5a8abbf025a6.png)
+
+Edit Data Suppliner
+![edit supplier](https://user-images.githubusercontent.com/53652867/137504695-ca365b37-1a2c-4b62-8f18-593741c549d1.png)
+
+Halaman Stok Masuk Produk
+![stok masuk](https://user-images.githubusercontent.com/53652867/137504790-d8201181-5ffd-42cd-bfb5-b04de212b8be.png)
+
+Tambah Stok Masuk Produk
+![tambah stok masuk](https://user-images.githubusercontent.com/53652867/137504862-1b80cead-c7c0-462a-bf96-2c0cef08ee49.png)
+
+Halaman Stok Keluar Produk
+![stok keluar](https://user-images.githubusercontent.com/53652867/137504990-06526573-06a9-4c66-98d2-0388988a2318.png)
+
+Tambah Stok Keluar Produk
+![tambah stok keluar](https://user-images.githubusercontent.com/53652867/137505101-fa711967-8dd2-496e-be2d-9e109ecb8230.png)
+
+Halaman Customer
+![customer](https://user-images.githubusercontent.com/53652867/137505309-8bed4b2f-7e6f-454c-b5b3-71c16dae8368.png)
+
+Tambah Data Customer
+![tambah customer](https://user-images.githubusercontent.com/53652867/137505377-478f456d-288a-4080-a617-a8b3cec32f43.png)
+
+Edit Data Customer
+![edit customer](https://user-images.githubusercontent.com/53652867/137505431-6bad213d-1496-4a1d-95a1-f0a0e12f9dc5.png)
+
+Halaman Kasir
+![Kasir_Baru](https://user-images.githubusercontent.com/53652867/137505552-caa2aed2-f8ee-47a5-a2c9-3f294e348c69.png)
+
+Konfirmasi Pembayaran
+![konfirmasi pembayaran](https://user-images.githubusercontent.com/53652867/137505618-6f3ea64f-a6fd-4042-b131-ed6ab2d3d541.png)
+
+Pembayaran Berhasil dan gagal
+
+Berhasil
+![pembayarn berhasil](https://user-images.githubusercontent.com/53652867/137505811-62672a01-1170-403a-bff6-608cb75cb44c.png)
+Gagal
+![pembayaran gagal](https://user-images.githubusercontent.com/53652867/137505899-e5be3af2-48f0-4acc-ae50-7b4bdb20dfd8.png)
+
+Invoice Produk pdf
+![invoice](https://user-images.githubusercontent.com/53652867/137505747-0822661b-d62d-4b0e-b21b-259b649717f5.png)
+
+Halaman Riwayat Transaksi
+![Riwayat Transaksi Baru](https://user-images.githubusercontent.com/53652867/137505961-d97b2a56-50bf-4e6b-9151-fc25d6630631.png)
+
+Laporan Riwayat Transaksi PDF
+![Laporan Riwayat tranksaksi](https://user-images.githubusercontent.com/53652867/137506033-775d7788-17da-46a7-a850-f61346342c1b.png)
+
+Halaman Data Produk Hampir Habis
+![stok hampir habis terbaru](https://user-images.githubusercontent.com/53652867/137506633-90c62fda-c82d-4984-a903-8db4f34230f5.png)
+
+Laporan Data Produk Hampir Habis PDF
+![Laporan stok habis](https://user-images.githubusercontent.com/53652867/137506317-394f9970-9b3c-45e3-b000-14232f1f4700.png)
+
+Halaman Data Produk Terlaris
+![Produk Laris Baru](https://user-images.githubusercontent.com/53652867/137506900-43231c63-229c-4184-b332-1ec737278c58.png)
+
+Laporan Data Produk Terlaris PDF
+![Laporan Barang Terlaris](https://user-images.githubusercontent.com/53652867/137507005-adadd8e9-5af0-4b99-be1b-9ff7fa6d918e.png)
+
+Halaman Akun
+![akun](https://user-images.githubusercontent.com/53652867/137507097-e432805e-1ec5-4006-b0e4-23787381db03.png)
+
+Tambah Akun
+![tambah akun](https://user-images.githubusercontent.com/53652867/137507152-f88e0714-78ad-45c0-8691-b6635d7ab2b3.png)
+
+Edit Akun
+![edit akun](https://user-images.githubusercontent.com/53652867/137507208-7983c680-8446-40c8-994a-e524fbbf4c92.png)
 
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
