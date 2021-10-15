@@ -3,6 +3,7 @@ Halaman Login
 
 Dashboard
 ![Dashboard_baru](https://user-images.githubusercontent.com/53652867/137503223-18320d59-41b4-4867-8491-ddf19f53cfc7.png)
+![79924027-05124900-8461-11ea-8d77-3b2950e38bfe](https://user-images.githubusercontent.com/53652867/137503497-5c15caad-8bb8-4cbb-b031-dabcb07e3792.png)
 
 
 
