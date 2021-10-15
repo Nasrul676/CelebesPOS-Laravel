@@ -1,7 +1,8 @@
 Halaman Login
 ![Screenshot_20200407_211421](https://user-images.githubusercontent.com/53652867/137502952-09b4a320-5241-4708-b08d-496045f3d024.png)
 
-
+Dashboard
+![Dashboard_baru](https://user-images.githubusercontent.com/53652867/137503223-18320d59-41b4-4867-8491-ddf19f53cfc7.png)
 
 
 
