@@ -114,10 +114,15 @@ Step 1
 pastikan sebelum installasi, composer dan xampp atau lampp telah ter-install dengan benar di komputer anda
 
 git clone https://github.com/Nasrul676/CelebesPOS-Laravel-6.git
+
 cd pos
+
 composer install
+
 cp .env.example .env
+
 php artisan key:generate
+
 
 Step 2
 edit file .env dan sesuaikan isinya dengan konfigurasi database yg ada.
@@ -126,11 +131,15 @@ Step 3
 jalankan perintah berikut pada terminal (masih dalam direktori pos)
 
 composer dump-autoload
+
 php artisan migrate 
+
 php artisan db:seed --class CreateUsersSeeder
+
 
 Step 4
 Jalankan command di terminal di dalam direktori project
+
 php artsan serve
 
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
