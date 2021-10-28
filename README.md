@@ -108,6 +108,9 @@ Tambah Akun
 Edit Akun
 ![edit akun](https://user-images.githubusercontent.com/53652867/137507208-7983c680-8446-40c8-994a-e524fbbf4c92.png)
 
+## How To Install
+
+
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
 <p align="center">
