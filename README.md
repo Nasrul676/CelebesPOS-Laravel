@@ -115,7 +115,7 @@ pastikan sebelum installasi, composer dan xampp atau lampp telah ter-install den
 
 git clone https://github.com/Nasrul676/CelebesPOS-Laravel-6.git
 
-cd pos
+masuk ke direktori project yang telah di clone di termina atau CMD
 
 composer install
 
