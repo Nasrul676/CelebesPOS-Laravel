@@ -115,11 +115,13 @@ pastikan sebelum installasi, composer dan xampp atau lampp telah ter-install den
 
 git clone https://github.com/Nasrul676/CelebesPOS-Laravel-6.git
 
-masuk ke direktori project yang telah di clone di termina atau CMD
+masuk ke direktori project yang telah di clone di terminal atau CMD
 
 composer install
 
-cp .env.example .env
+cp .env.example .env untuk linux atau mac
+
+copy .env.example .env untuk windows
 
 php artisan key:generate
 
