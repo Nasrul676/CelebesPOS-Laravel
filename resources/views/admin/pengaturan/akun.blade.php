@@ -2,7 +2,6 @@
 @section('sidebarakun', 'mm-active')
 @section('title','Akun')
 @section('content')
-@include('sweetalert::alert')
 <div class="main-card mb-3 card">
   <div class="card-body">
     <div class="border mb-3">
@@ -67,16 +66,19 @@
             <td>{{$getakun->updated_at}}</td>
             <td>
               @if ($getakun->name == Auth::user()->name)
-              <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Anda Tidak Bisa Menghapus Akun Yang Sedang Aktif"><i class="fas fa-eraser"></i> hapus</a>
-              </button>
+                <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Anda Tidak Bisa Menghapus Akun Yang Sedang Aktif">
+                  <i class="fas fa-eraser"></i></a>
+                </button>
               @else
               <form id="delete-akun" action="{{ route('hapus_akun', $getakun->id) }}">
                   {{csrf_field()}}
                   {{method_field('delete')}}
-                  <button type="button" class="btn btn-outline-danger" onclick="confirmDelete('delete-akun')"><i class="fas fa-trash"></i> hapus</button>
+                    <button type="button" class="btn btn-outline-danger" onclick="confirmDelete('delete-akun')">
+                      <i class="fas fa-trash"></i>
+                    </button>
               </form>
               @endif
-              <a href="{{ route('edit_akun',['id' => $getakun->id]) }}" class="btn btn-warning"><i class="fas fa-edit"></i> Edit</a>
+                <a href="{{ route('edit_akun',['id' => $getakun->id]) }}" class="btn btn-warning"><i class="fas fa-edit"></i></a>
             </td>
           </tr>
           @endforeach

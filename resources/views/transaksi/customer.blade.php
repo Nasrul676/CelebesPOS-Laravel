@@ -61,8 +61,8 @@
                 <form id="delete-customer" action="{{ route('hapus_customer', $getcustomer->id) }}">
                   {{csrf_field()}}
                   {{method_field('delete')}}
-                  <a href="{{ route('edit_customer',['id' => $getcustomer->id]) }}" class="btn btn-warning"><i class="fas fa-edit"></i> edit</a>
-                  <button type="button" class="btn btn-outline-danger" onclick="confirmDelete('delete-customer')"><i class="fas fa-trash"></i> hapus</button>
+                  <a href="{{ route('edit_customer',['id' => $getcustomer->id]) }}" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                  <button type="button" class="btn btn-outline-danger" onclick="confirmDelete('delete-customer')"><i class="fas fa-trash"></i></button>
               </form>
               </td>
             </tr>

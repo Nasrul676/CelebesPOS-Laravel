@@ -51,17 +51,16 @@ class LoginController extends Controller
 
             if (auth()->user()->is_admin == 'admin') {
 
-                return redirect()->route('dashboard')->with('warning', 'Hai, Selamat Datang...!');
+                return redirect()->route('dashboard')->with('success', 'Hi :), Selamat Datang...!');
 
             }else{
 
-                return redirect()->route('dashboard')->with('warning' , 'Hai, Selamat Datang...!');
+                return redirect()->route('dashboard')->with('success' , 'Hi :), Selamat Datang...!');
 
             }
 
         }else{
-
-            return view('auth.login')->with('info', 'Email Dan Password Anda Salah...!');
+            return redirect()->route('login')->with('warning', 'Email Dan Password Anda Salah...!');
         }
     }
 }

@@ -10,7 +10,7 @@
         <div class="col-3">
           <ul class="tabs-animated body-tabs-animated nav">
             <li class="nav-item">
-              <a type="button" class="nav-link" data-toggle="modal" data-target="#exampleModal">
+              <a type="button" class="nav-link btn-sm" data-toggle="modal" data-target="#exampleModal">
                 <span><i class="fas fa-plus"></i> Tambah Data Kategori Barang</span>
               </a>
             </li>
@@ -51,8 +51,8 @@
                 <form id="delete-kategori" action="{{ route('hapus_kategori', $getkategori->id) }}">
                     {{csrf_field()}}
                     {{method_field('delete')}}
-                <a href="{{ route('edit_kategori',['id' => $getkategori->id]) }}" class="btn btn-warning"><i class="fas fa-edit"></i> edit</a>
-                <button type="button" class="btn btn-outline-danger" onclick="confirmDelete('delete-kategori')"><i class="fas fa-trash"></i> hapus</button>
+                <a href="{{ route('edit_kategori',['id' => $getkategori->id]) }}" class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Edit data"><i class="fas fa-edit"></i></a>
+                <button type="button" class="btn btn-outline-danger" onclick="confirmDelete('delete-kategori')" data-toggle="tooltip" data-placement="top" title="Hapus data"><i class="fas fa-trash"></i></button>
               </form>
               </td>
             </tr>

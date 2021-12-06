@@ -57,8 +57,8 @@
                             <form id="delete-suppliner" action="{{ route('hapus_suppliner', $getsuppliner->id) }}">
                                     {{csrf_field()}}
                                     {{method_field('delete')}}
-                                <a href="{{ route('edit_suppliner',['id' => $getsuppliner->id]) }}" class="btn btn-warning"><i class="fas fa-edit"></i> edit</a>
-                                <button type="button" class="btn btn-outline-danger" onclick="confirmDelete('delete-suppliner')"><i class="fas fa-trash"></i> hapus</button>
+                                <a href="{{ route('edit_suppliner',['id' => $getsuppliner->id]) }}" class="btn btn-warning"><i class="fas fa-edit" data-toggle="tooltip" data-placement="top" title="Edit data"></i></a>
+                                <button type="button" class="btn btn-outline-danger" onclick="confirmDelete('delete-suppliner')"><i class="fas fa-trash" data-toggle="tooltip" data-placement="top" title="Hapus data"></i></button>
                             </form>
                             </td>
                         </tr>

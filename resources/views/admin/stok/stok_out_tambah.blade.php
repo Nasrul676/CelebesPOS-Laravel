@@ -5,16 +5,13 @@
 <div class="main-card mb-3 card">
     <div class="card-body">
         <form class="needs-validation" novalidate  method="post" action="{{ route('tambah_stok_out') }}">
-            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
             <div class="form-row">
                 <div class="col-md-4 mb-3">
                     <label>Barcode</label>
                     <div class="form-group input-group">
-                        <input  id="barcode" name="barcode" readonly="true" type="text" class="form-control">
+                        <input  id="barcode" name="barcode" type="text" class="form-control">
                         <div class="input-group-append">
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#stok_out_modal">
-                            <i class="fas fa-search"></i> Cari Barcode
-                            </button>
                         </div>
                     </div>
                     <div class="invalid-feedback">
@@ -115,19 +112,45 @@
 </div>
 </div>
 </div>
-<script type="text/javascript">
-$(document).ready(function() {
-    $(document).on('click', '#select', function() {
-        var barcode = $(this).data('barcode');
-        var nama_barang = $(this).data('nama_barang');
-        var stok_barang = $(this).data('stok_barang');
-        var id = $(this).data('id');
-        $('#barcode').val(barcode);
-        $('#nama_barang').val(nama_barang);
-        $('#stok_barang').val(stok_barang);
-        $('#id').val(id);
-        $('#stok_out_modal').modal('hide');
-    })
-})
+<script src="{{ asset('/assets/js/jquery.min.js') }}"></script>
+<script>
+    $("#barcode").focusout(function(e){
+
+        var barcode = $(this).val();
+        var token = $("#token").val();
+        
+        $.ajax({
+            headers: { 'X-CSRF-TOKEN': token},
+            url: "/admin/cari_Data_keluar",
+            data: {'barcode':barcode},
+            success : function(data) {
+                if(data.length === 0){
+                    swal('Data Tidak Ditemukan...!','pastikan barcode sudah terdaftar di produk','error');
+                    $('#barcode').val('');
+                    $('#nama_barang').val('');
+                    $('#id').val('');
+                    $('#stok_barang').val('');
+                    $('#satuan_barang').val('');
+                    $('#kategori').val('');
+                    $('#suppliner').val('');
+                    $('#harga_modal').val('');
+                    $('#harga_jual').val('');
+                } else {
+                    $('#barcode').val(data[0].barcode);
+                    $('#nama_barang').val(data[0].nama_barang);
+                    $('#id').val(data[0].id);
+                    $('#stok_barang').val(data[0].stok_barang);
+                    $('#satuan_barang').val(data[0].satuan_barang);
+                    $('#kategori').val(data[0].kategori);
+                    $('#suppliner').val(data[0].suppliner);
+                    $('#harga_modal').val(data[0].harga_modal);
+                    $('#harga_jual').val(data[0].harga_jual);
+                }
+            },
+            error: function(response) {
+                alert(response.responseJSON.message);
+            }
+        });
+    });
 </script>
 @endsection

@@ -42,7 +42,7 @@ class StokOutController extends Controller
      */
     public function store(Request $request)
     {
-        $id = Uuid::uuid(4);
+        // $id = Uuid::uuid(4);
         $stok_lama = $request->stok_barang;
         $id = $request->id;
         $stok_saat_ini = $request->jumlah_barang;
@@ -53,9 +53,7 @@ class StokOutController extends Controller
         $total = $stok_lama - $stok_saat_ini;
     
         $data = new stok_outModel();
-        $data->id = $id;
         $data->total = $total;
-        $data->id = $request->id;
         $data->barcode = $request->barcode;
         $data->nama_barang = $request->nama_produk;
         $data->jumlah_barang = $request->stok_barang;
@@ -113,11 +111,13 @@ class StokOutController extends Controller
         
         $data = stok_outModel::find($id);
         $id = $request->id; // diambil dari form
+        $barcode = $data['barcode'];
+        
         $stok_saat_ini = $data->jumlah_stok_out;
         $stok_lama = $data->total;
 
 
-        $jumlah_stok = DB::table('products')->where(['id' => $id])
+        $jumlah_stok = DB::table('products')->where(['barcode' => $barcode])
         ->update(['stok_barang' => $stok_lama + $stok_saat_ini]);
 
         
@@ -129,5 +129,17 @@ class StokOutController extends Controller
         // Session::flash('alert', 'Data Berhasil Di Hapus');
 
         return redirect()->route('stok_out')->with('success', 'Data Stok Keluar Berhasil Di Hapus...!');
+    }
+    public function otomatis(Request $request){
+        try {
+           $barcode = $request->barcode;
+           $getData = DB::select("SELECT * FROM products WHERE barcode ='$barcode'");
+           return response()->json($getData, 200);
+       } catch (\Throwable $th) {
+           return response()->json([
+               'message' => $th->getMessage()
+           ], 500);
+       }
+    //    $data = DB::table('products')->where(['barcode' => $barcode])->first();
     }
 }

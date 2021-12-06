@@ -50,8 +50,8 @@
                   <form id="delete-satuan" action="{{ route('destroy_satuan', $getsatuan->id) }}">
                     {{csrf_field()}}
                     {{method_field('delete')}}
-                  <a href="{{ route('edit_satuan',['id' => $getsatuan->id]) }}" class="btn btn-warning"><i class="fas fa-edit"></i> edit</a>
-                    <button type="button" class="btn btn-outline-danger" onclick="confirmDelete('delete-satuan')"><i class="fas fa-trash"></i> hapus</button>
+                  <a href="{{ route('edit_satuan',['id' => $getsatuan->id]) }}" class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Edit data"><i class="fas fa-edit"></i></a>
+                    <button type="button" class="btn btn-outline-danger" onclick="confirmDelete('delete-satuan')" data-toggle="tooltip" data-placement="top" title="Hapus data"><i class="fas fa-trash"></i></button>
                   </form>
                 </td>
               </tr>

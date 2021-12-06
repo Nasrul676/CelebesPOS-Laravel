@@ -1,6 +1,13 @@
 @extends('theme')
 @section('title','Edit Produk')
 @section('content')
+@if(count($errors) > 0)
+    <div class="alert alert-danger">
+        @foreach ($errors->all() as $error)
+        {{ $error }} <br/>
+        @endforeach
+    </div>
+@endif
 @if(session('alert'))
 <div class="container">
     <div class="alert alert-dismissible alert-success">
@@ -33,22 +40,31 @@
                 </div>
             </div>
             <label>Upload Foto</label>
-            <div class="row ml-0 mr-0 border">
+            <div class="row ml-0 mr-0">
                 <div class="col">
-                    <input type="file" class="mt-3" id="image" name="foto" value="{{$data->foto}}">
+                    <input type="file" class="mt-3" id="image" name="foto" value="{{$data->foto}}" onchange="previewImages()">
                     <div class="mb-3 mt-3">
-                        @if($data->foto == "")
-                        <img class="" src="{{asset('images/default/default.png')}}" width="200px" height="100px">
-                        @else
-                        <img src="{{asset('/images/' .$data->foto)}}" width="200px" height="100px" alt="">
-                        @endif
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    @if($data->foto == "")
+                                        <img class="" src="{{asset('images/default/default.png')}}" width="200px" height="100px">
+                                    @else
+                                        <img src="{{asset('/images/fotoProduk/' .$data->foto)}}" width="200px" height="100px" alt="">
+                                    @endif
+                                </div>
+                                <div class="col-md-6">
+                                    <img id="imgPreview" src="#" alt="Pastikan File Foto Kurang Dari 2 MB" width="200" height="200" class="img-thumbnail">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="row mt-3 mb-3">
                 <div class="col">
                     <label for="validationCustom03">Supplier</label>
-                    <select class="custom-select" id="inputGroupSelect01" name="suppliner" value="{{ $data->suppliner }}">
+                    <select class="form-control multiselect-dropdown" id="inputGroupSelect0" name="suppliner" value="{{ $data->suppliner }}">
                         <option>{{$data->suppliner}}</option>}
                         option
                         @foreach ($data_suppliner as $getsuppliner)
@@ -72,7 +88,7 @@
             <div class="row mb-3">
                 <div class="col">
                     <label for="nama">Satuan Barang </label>
-                    <select class="custom-select" id="inputGroupSelect01" name="satuan_barang" value="{{ $data->satuan_barang }}">
+                    <select class="form-control multiselect-dropdown" id="inputGroupSelect01" name="satuan_barang" value="{{ $data->satuan_barang }}">
                         <option>{{$data->satuan_barang}}</option>}
                         option
                         @foreach ($data_satuan as $getsatuan)
@@ -87,7 +103,7 @@
             <div class="row mb-3">
                 <div class="col">
                     <label for="nama">Kategori</label>
-                    <select class="custom-select" id="inputGroupSelect01" name="kategori" value="{{ $data->nama_barang }}">
+                    <select class="form-control multiselect-dropdown" id="inputGroupSelect02" name="kategori" value="{{ $data->nama_barang }}">
                         <option>{{$data->kategori}}</option>}
                         option
                         @foreach ($data_kategori as $getkategori)
@@ -133,4 +149,12 @@
         </form>
     </div>
 </div>
+<script>
+  function previewImages(){
+    const [file] = image.files
+    if(file){
+      imgPreview.src = URL.createObjectURL(file)
+    }
+  }
+</script>
 @endsection

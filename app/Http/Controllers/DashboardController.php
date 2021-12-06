@@ -41,7 +41,6 @@ class DashboardController extends Controller
             $chartlarisstok[] = $lar->qty;
         }
 
-// dd($chartlarisnama);
         return view('dashboard', [
             'data_customer' => $data_customer,
             'data_stok' => $data_stok,

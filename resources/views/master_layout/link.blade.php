@@ -8,8 +8,8 @@
         
         <link href="{{asset('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
         <link rel="stylesheet" type="text/css" href="{{asset('assets/assets/main.css')}}">
-        <link rel="stylesheet" href="{{asset('css/toastr.min.css')}}" />
-        <script src="{{asset('js/toastr.min.js')}}"></script>
+        {{-- <link rel="stylesheet" href="{{asset('css/toastr.min.css')}}" /> --}}
+        {{-- <script src="{{asset('js/toastr.min.js')}}"></script> --}}
         <script src="{{asset('js/jquery.js')}}"></script>
     </head>
     <body>
@@ -37,6 +37,6 @@
         <script src="{{asset('js/jquery.mask.min.js')}}"></script>
         <script src="{{asset('assets/assets/main.js')}}" type="text/javascript"></script>
         <script src="{{asset('assets/assets/sweetalert2.all.min.js')}}" type="text/javascript"></script>
-        <script src="{{asset('assets/assets/bootstrap-confirmation.min.js')}}" type="text/javascript"></script>
+        {{-- <script src="{{asset('assets/assets/bootstrap-confirmation.min.js')}}" type="text/javascript"></script> --}}
     </body>
 </html>

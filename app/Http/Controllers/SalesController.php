@@ -104,10 +104,7 @@ class SalesController extends Controller
             if ($cek2 == 0) {
             $hasil6 = DB::table('temp_transactions')->where('nama_barang',$nama_barang)->update(['diskon'=>$diskon]);
             $hasil7 = DB::table('history_transactions')->where('id',$id)->update(['diskon'=>$diskon]);                  
-            } else {
-
             }
-            
         } else {
 
         $id = Uuid::uuid(4);
@@ -194,7 +191,7 @@ class SalesController extends Controller
             'diskon' => $totaldiskonbarang,
             'qty' => $totalqtybarang,
         ]);
-        return $pdf->download('invoice-kasir-pdf');
+        return $pdf->download('invoice-kasir.pdf');
     }
 
     /**

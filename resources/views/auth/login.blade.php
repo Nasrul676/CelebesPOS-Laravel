@@ -1,7 +1,7 @@
 @extends('master_layout.link')
 @section('judul', 'Login')
-@include('sweetalert::alert')
 @section('content')
+@include('sweetalert::alert')
 <div class="app-container app-theme-white body-tabs-shadow">
   <div class="app-container">
     <div class="h-100 bg-plum-plate bg-animation">
@@ -13,11 +13,12 @@
               <div class="modal-body">
                 <div class="h5 modal-title text-center">
                   <h4 class="mt-2">
-                  <div>Selamat Datang,</div>
+                  <div>Selamat Datang Di,</div>
+                  <div>Aplikasi Celebes POS,</div>
                   <span>Silahkan Login Untuk Masuk Ke Dashboard.</span>
                   </h4>
                 </div>
-                <form class="needs-validation" novalidate   method="POST" action="{{ route('login') }}" class="">
+                <form class="needs-validation" novalidate method="POST" action="{{ route('login') }}" class="">
                   <input type="hidden" name="_token" value="{{ csrf_token() }}">
                   <div class="form-row">
                     <div class="col-md-12">
@@ -48,7 +49,7 @@
               </div>
             </div>
           </div>
-          <div class="text-center text-white opacity-8 mt-3">Copyright © Muh Nasrul 2020</div>
+          <div class="text-center text-white opacity-8 mt-3">Copyright © Muh Nasrul 2020 | Junior Web Dev</div>
         </div>
       </div>
     </div>
@@ -77,15 +78,18 @@
           <hr>
           admin : admin@gmail.com
           <br>
-          password : 12345678
+          password : admin
           <br>
           <hr>
           kasir : kasir@gmail.com
           <br>
-          password : 12345678
+          password : admin
           <br>
           <hr>
-          <div class="text-center text-danger"><span>Copyright &copy; GoPOS nasrul 2020</span></div>
+          <div class="text-warning"><span>Mohon Copyright jangan dihapus</span></div>
+          <br>
+          <hr>
+          <div class="text-center text-danger"><span>Copyright &copy; GoPOS nasrul 2020 | Junior Web Dev</span></div>
         </div>
       </div>
       <div class="modal-footer">

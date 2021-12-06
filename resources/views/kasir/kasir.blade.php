@@ -11,7 +11,7 @@
 					<div class="card-body">
 						<form   method="GET" action="{{route('sales')}}">
 							<div class="form-group input-group">
-								<input  id="barcode" name="cari" placeholder="Masukkan Nama Barang/Barcode" type="text" class="form-control">
+								<input  id="barcode" name="cari" autofocus placeholder="Masukkan Nama Barang/Barcode" type="text" class="form-control">
 								<div class="input-group-append">
 									<button type="submit" class="btn btn-primary btn-cari">
 									<i class="fas fa-search"></i> Cari Barcode
@@ -54,6 +54,7 @@
 					</div>
 				</div>
 			</div>
+			<br>
 			<div class="col-lg-6">
 				<div class="main-card card">
 					<div class="mt-3 mb-2 card-body">
@@ -96,7 +97,7 @@
 								<div class="col-md-6">
 									<div class="position-relative form-group">
 										<label>Tanggal</label>
-										<input name="tanggal" type="date" autocomplete="off" class="form-control"/>
+										<input name="tanggal" type="date" value="{{ date('Y-m-d') }}" autocomplete="off" class="form-control"/>
 									</div>
 								</div>
 								<div class="col-md-6">
@@ -129,7 +130,7 @@
 						<h5 class="card-title">Detail Pesanan</h5>
 						<form action="{{route('invoice')}}" method="GET">
 							<input type="hidden" name="nama_barang_confirm" value="{{$total}}">
-							<button type="submit" class="btn btn-success btn-invoice" style="position: absolute; top: 0px; right: 0px; margin-top: 10px; margin-right: 10px">cetak invoice</button>
+							<button type="submit" class="btn btn-success btn-invoice" style="position: absolute; top: 0px; right: 0px; margin-top: 10px; margin-right: 10px"><i class="fas fa-print"></i>  cetak invoice</button>
 						</form>
 						<div class="table-responsive">
 							<table class="mb-0 table text-center table-bordered">
@@ -166,6 +167,7 @@
 					</div>
 				</div>
 			</div>
+			<br>
 			<div class="col-lg-4">
 				<div class="main-card card">
 					<div class="card-body"><h5 class="card-title">Pembayaran</h5>

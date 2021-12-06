@@ -49,12 +49,6 @@
                     </a>
                     <ul>
                         <li>
-                            <a href="{{route('product')}}" class="@yield('sidebarproduk')">
-                                <i class="metismenu-icon"></i>
-                                Data Produk
-                            </a>
-                        </li>
-                        <li>
                             <a href="{{route('kategori')}}" class="@yield('sidebarkategori')">
                                 <i class="metismenu-icon"></i>
                                 Kategori Produk
@@ -70,6 +64,12 @@
                             <a href="{{route('suppliner')}}" class="@yield('sidebarsupplier')">
                                 <i class="metismenu-icon"></i>
                                 Supplier
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{route('product')}}" class="@yield('sidebarproduk')">
+                                <i class="metismenu-icon"></i>
+                                Data Produk
                             </a>
                         </li>
                     </ul>
@@ -162,9 +162,8 @@
                 </li>
                 @endif
                 <li>
-                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                        document.getElementById('logout-form').submit();">
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    <a href="{{ route('logoutApp') }}">
+                        <form action="{{ route('logoutApp') }}" method="POST" style="display: none;">
                             @csrf
                         </form>
                         <i class="metismenu-icon fas fa-power-off"></i>

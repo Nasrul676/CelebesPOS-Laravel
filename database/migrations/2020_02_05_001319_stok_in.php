@@ -14,7 +14,7 @@ class StokIn extends Migration
     public function up()
     {
         Schema::create('stok_ins', function (Blueprint $table) {
-            $table->string('id', 200);
+            $table->bigIncrements('id');
             $table->string('nama_barang', 100);
             $table->string('barcode', 50)->nullable();
             $table->string('suppliner')->nullable();

@@ -56,7 +56,6 @@ class Stok_InController extends Controller
      */
     public function store(Request $request)
     {
-        $id = Uuid::uuid(4);
         $qty = $request->stok_barang;
         $id = $request->id;
         $jumlah = $request->jumlah_produk;
@@ -65,9 +64,7 @@ class Stok_InController extends Controller
         ;
         $total = $qty + $jumlah;
         $data = new stok_inModel();
-        $data->id = $id;
         $data->total = $total;
-        $data->id = $request->id;
         $data->barcode = $request->barcode;
         $data->nama_barang = $request->nama_produk;
         $data->satuan_barang = $request->satuan_barang;
@@ -128,8 +125,9 @@ class Stok_InController extends Controller
         $data = stok_inModel::find($id);
         $qty = $data->jumlah_produk;
         $id = $request->id;
+        $barcode = $data['barcode'];
         $jumlah = $data->total;
-        $jumlah_produky = DB::table('products')->where(['id' => $id])
+        $jumlah_produky = DB::table('products')->where(['barcode' => $barcode])
             ->update(['stok_barang' =>   $jumlah - $qty]);   
         
         stok_inModel::destroy($id);
@@ -137,6 +135,19 @@ class Stok_InController extends Controller
         // Session::flash('alert', 'Data Berhasil Di Hapus');
 
         return redirect()->route('stok_in')->with('success', 'Data Stok Masuk Berhasil Di Hapus...!');
+    }
+
+    public function otomatis(Request $request){
+        try {
+           $barcode = $request->barcode;
+           $getData = DB::select("SELECT * FROM products WHERE barcode ='$barcode'");
+           return response()->json($getData, 200);
+       } catch (\Throwable $th) {
+           return response()->json([
+               'message' => $th->getMessage()
+           ], 500);
+       }
+    //    $data = DB::table('products')->where(['barcode' => $barcode])->first();
     }
 
 }

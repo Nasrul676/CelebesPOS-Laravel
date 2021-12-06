@@ -24,7 +24,7 @@ class CreateUsersSeeder extends Seeder
 
                 'is_admin'=>'admin',
 
-               'password'=> Hash::make('12345678'),
+               'password'=> Hash::make('admin'),
 
             ],
 
@@ -37,7 +37,7 @@ class CreateUsersSeeder extends Seeder
 
                 'is_admin'=>'kasir',
 
-               'password'=> Hash::make('12345678'),
+               'password'=> Hash::make('kasir'),
 
             ],
 

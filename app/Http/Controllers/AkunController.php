@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Storage;
 use Session;
 use Faker\Provider\Uuid;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\DB;
 
 class AkunController extends Controller
 {
@@ -42,15 +43,26 @@ class AkunController extends Controller
      */
     public function store(Request $request)
     {
+        $emailBaru = $request->email;
+        $emailTersedia = DB::table('users')->where('email', 'like' ,$emailBaru)->value('email');
 
-        $id = Uuid::uuid(4);
-        $data = new User();
-        $data->id = $id;
-        $data->name = $request->name;
-        $data->email = $request->email;
-        $data->is_admin = $request->is_admin;
-        $data->password = Hash::make($request['password']);
-        $data->save();
+        // dd($emailTersedia);
+        // cek apakah email sudah terdaftar
+        if ($emailTersedia == $emailBaru) {
+            return redirect()->route('akun')->with('info', 'Email Sudah Terdaftar...!');
+        } else {
+            $id = Uuid::uuid(4);
+            $data = new User();
+            $data->id = $id;
+            $data->name = $request->name;
+            $data->email = $request->email;
+            $data->is_admin = $request->is_admin;
+            $data->password = Hash::make($request['password']);
+            $data->save();
+            return redirect()->route('akun')->with('success', 'Data Akun Berhasil Di Tambahkan...!');
+        }
+        
+        
         // User::create([
         //     'id' => $data->Uuid::uuid(4),
         //     'name' => $data['name'],
@@ -61,7 +73,6 @@ class AkunController extends Controller
 
         // Session::flash('alert', 'Data Berhasil Di Tambahkan');
 
-        return redirect()->route('akun')->with('success', 'Data Akun Berhasil Di Tambahkan...!');
     }
 
     /**
@@ -121,6 +132,11 @@ class AkunController extends Controller
         }else{
             $data->password = Hash::make($request->password);
         }
+        // validasi file foto
+        $request->validate([
+            'foto' => 'file|max:2024',
+            'foto' => 'mimes:jpg,png,jpeg'
+        ]);
         // cek jika file gambar
         if($request->hasFile('foto')){
             // cek foto lama

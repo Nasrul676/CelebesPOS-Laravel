@@ -54,8 +54,16 @@ class ProductController extends Controller
      */
     public function create()
     {
-        
-    }
+        $data_kategori = DB::select('select nama_kategori from kategoris');
+        $data_suppliner = DB::select('select nama_suppliner from suppliners');
+        $data_satuan = DB::select('select satuan from satuans');
+
+        return view('admin/produk/produk_tambah', [
+            'data_kategori' => $data_kategori,
+            'data_suppliner' => $data_suppliner,
+            'data_satuan' => $data_satuan,
+        ]);
+    }   
 
     /**
      * Store a newly created resource in storage.
@@ -77,16 +85,21 @@ class ProductController extends Controller
         $data->kategori = $request->kategori;
         $data->harga_modal = $request->harga_modal;
         $data->harga_jual = $request->harga_jual;
+        // validasi file foto
+        $request->validate([
+            'foto' => 'file|max:2024',
+            'foto' => 'mimes:jpg,png,jpeg'
+        ]);
         // cek gambar dari form
         if($request->hasFile('foto')){
             // memindahkan foto ke dalam folder public/images
-            $request->file('foto')->move('images/', $request->file('foto')->getClientOriginalName());
+            $request->file('foto')->move('images/fotoProduk/', $request->file('foto')->getClientOriginalName());
             // menyimpan nama foto ke dalam database
             $data->foto = $request->file('foto')->getClientOriginalName();   
         }
         $data->save();
 
-        return redirect()->route('product')->with('success','Data Produk Berhasil Di Tambahkan...!');
+        return redirect()->back()->with('success','Data Produk Berhasil Di Tambahkan...!');
     }
 
     /**
@@ -128,13 +141,18 @@ class ProductController extends Controller
         $data = Product::find($id);
         $data->nama_barang = $request->nama_barang;
         $data->barcode = $request->barcode;
+        // validasi file foto
+        $request->validate([
+            'foto' => 'file|max:2024',
+            'foto' => 'mimes:jpg,png,jpeg'
+        ]);
         // cek jika gambar  ada
         if($request->hasFile('foto')){
             $gambar = Product::where('id',$id)->first();
             // hapus foto yg lama
-            File::delete('images/'. $gambar->foto);
+            File::delete('images/fotoProduk/'. $gambar->foto);
             // upload foto yg baru
-            $request->file('foto')->move('images/', $request->file('foto')->getClientOriginalName());
+            $request->file('foto')->move('images/fotoProduk/', $request->file('foto')->getClientOriginalName());
             $data->foto = $request->file('foto')->getClientOriginalName();
         }
             

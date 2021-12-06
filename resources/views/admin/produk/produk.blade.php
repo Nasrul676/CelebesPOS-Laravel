@@ -11,7 +11,7 @@
         <div class="col-3">
           <ul class="tabs-animated body-tabs-animated nav">
             <li class="nav-item">
-              <a type="button" class="nav-link" data-toggle="modal" data-target="#exampleModal">
+              <a type="button" class="nav-link" href="{{ route('tambah_produk') }}">
                 <span><i class="fas fa-plus"></i> Tambah Data Produk</span>
               </a>
             </li>
@@ -61,7 +61,7 @@
                 @if($getproduk->foto == "")
                 <img src="{{asset('images/default/default.png')}}" width="100px" height="50px">
                 @else
-                <a href="{{asset('/images/' .$getproduk->foto)}}"><img id="myImg" src="{{asset('/images/' .$getproduk->foto)}}" width="100px;" height="50px" alt="image">
+                <a href="{{asset('/images/fotoProduk/' .$getproduk->foto)}}"><img id="myImg" src="{{asset('/images/fotoProduk/' .$getproduk->foto)}}" width="100px;" height="50px" alt="image">
                 </a>
                 @endif
               </td>
@@ -96,116 +96,12 @@
 </div>
 </div>
 </div>
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-<div class="modal-dialog" role="document">
-<div class="modal-content">
-<div class="modal-header">
-<h5 class="modal-title" id="exampleModalLabel">Tambah Data Produk</h5>
-<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-<span aria-hidden="true">&times;</span>
-</button>
-</div>
-<div class="">
-<div class="">
-  <div class="modal-body">
-    <form class="needs-validation" novalidate  method="post" action="{{ route('tambah_data_produk') }}" enctype="multipart/form-data">
-      <input type="hidden" name="_token" value="{{ csrf_token() }}">
-      <div class="container">
-        <div class="">
-          <label for="validationCustom03">Nama Produk</label>
-          <input type="text" class="form-control" autocomplete="off" name="nama_barang" id="validationCustom03" required>
-          <div class="invalid-feedback">
-            Nama Produk Tidak Boleh Kosong.
-          </div>
-        </div>
-        <div class="mt-3">
-          <label for="nama">Barcode </label>
-          <input class="form-control" type="text" autocomplete="off" name="barcode"  required>
-          <div class="invalid-feedback">
-            Barcode Tidak Boleh Kosong.
-          </div>
-        </div>
-        <div class="mt-3 mb-3">
-          <label for="validationCustom03">Foto</label>
-          <input type="file" class="" id="image" name="foto" >
-        </div>
-        <div class="mt-3">
-          <label for="validationCustom03">Supplier</label>
-          <select class="custom-select" id="inputGroupSelect01" name="suppliner">
-            <option disabled="true" selected="true">--pilih supplier--</option>
-            @foreach ($data_suppliner as $getsuppliner)
-            <option>{{$getsuppliner->nama_suppliner}}</option>
-            @endforeach
-          </select>
-          <div class="valid-feedback">
-            Mohon Pilih Supplier Barang Jika Tersedia.
-          </div>
-        </div>
-        <div class="mt-3">
-          <label for="validationCustom03">Jumlah Stok</label>
-          <input type="number" autocomplete="off" class="form-control" name="stok_barang" id="validationCustom03" required>
-          <div class="invalid-feedback">
-            Jumlah Stok Tidak Boleh Kosong.
-          </div>
-        </div>
-        <div class="mt-3">
-          <label for="validationCustom03">Satuan Barang</label>
-          <select class="custom-select" id="inputGroupSelect01" required="true" name="satuan">
-            <option disabled="true" selected="true">--pilih satuan barang--</option>
-            @foreach ($data_satuan as $getsatuan)
-            <option>{{$getsatuan->satuan}}</option>
-            @endforeach
-          </select>
-          <div class="invalid-feedback">
-            Mohon Pilih Satuan Barang.
-          </div>
-        </div>
-        <div class="mt-3">
-          <label for="validationCustom03">Kategori Barang</label>
-          <select class="custom-select" id="inputGroupSelect01" required="true" name="kategori">
-            <option disabled="true" selected="true">--pilih kategori barang--</option>
-            @foreach ($data_kategori as $getkategori)
-            <option>{{$getkategori->nama_kategori}}</option>
-            @endforeach
-          </select>
-          <div class="invalid-feedback">
-            Mohon Pilih Kategori Barang.
-          </div>
-        </div>
-        <div class="mt-3">
-          <label for="nama">Harga Pokok</label>
-          <input class="form-control" type="number" autocomplete="off" id="rupiah" type="text" name="harga_modal"  required>
-          <div class="invalid-feedback">
-            Harga Pokok Tidak Boleh Kosong.
-          </div>
-        </div>
-        <div class="mt-3">
-          <label for="validationCustom03">Harga Jual</label>
-          <input class="form-control" type="number" autocomplete="off" id="rupiah2" name="harga_jual"  required>
-          <div class="invalid-feedback">
-            Harga Jual Tidak Boleh Kosong.
-          </div>
-        </div>
-        <div class="form-check mt-3">
-          <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-          <label class="form-check-label" for="invalidCheck">
-            Data Yang Dimasukkan Telah Benar.
-          </label>
-          <div class="invalid-feedback">
-            Anda Harus Memasukkan Data Dengan Lengkap..!
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-outline-danger shadow-sm" data-dismiss="modal"><i class="fas fa-undo-alt"></i> Close</button>
-      <button type="submit" class="btn btn-success shadow-sm"><i class="fas fa-paper-plane"></i> Save</button>
-    </form>
-  </div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<script>
+  function previewImages(){
+    const [file] = image.files
+    if(file){
+      imgPreview.src = URL.createObjectURL(file)
+    }
+  }
+</script>
 @endsection

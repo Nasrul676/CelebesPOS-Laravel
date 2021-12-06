@@ -10,6 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+// controller logout
+Route::get('/logout/Application', 'logoutController@logoutSession')->name('logoutApp');
+
 //controller error
 Route::get('Error/404', 'ErrorController@index')->name('eror');
 
@@ -21,7 +24,7 @@ Route::get('/Login/Error/404','LoginController@eror')->name('logineror');
 Route::get('/kasir', 'HomeController@index')->name('kasir');
 
 // controller dashboard
-Route::get('/admin/dashboard','DashboardController@index')->name('dashboard');
+Route::get('/admin/dashboard','DashboardController@index')->name('dashboard')->middleware('auth');
 Route::get('kasir/dashboard', 'DashboardController@kasir')->name('kasir_dashboard');
 
 // controller home
@@ -65,6 +68,7 @@ Route::get('/admin/Edit_Stok_In/{id}', 'Stok_InController@edit')->name('edit_sto
 Route::get('/admin/Cari_Stok_In', 'Stok_InController@cari')->name('cari')->middleware('is_admin')->middleware('auth');
 Route::get('/admin/Hapus_Stok_In/{id}', 'Stok_InController@destroy')->name('hapus_stok_in')->middleware('is_admin')->middleware('auth');
 Route::get('/admin/Tambah_Stok', 'Stok_InController@create')->name('tambah_stok')->middleware('is_admin')->middleware('auth');
+Route::get('/admin/cari_Data', 'Stok_InController@otomatis')->name('cari_produk')->middleware('is_admin')->middleware('auth');
 Route::post('/admin/Tambah_Stok_In', 'Stok_InController@store')->name('tambah_stok_in')->middleware('is_admin')->middleware('auth');
 Route::post('/admin/Update_Stok_In/{id}', 'Stok_InController@update')->name('update_stok_in')->middleware('is_admin')->middleware('auth');
 
@@ -82,6 +86,7 @@ Route::get('admin/stok_out', 'StokOutController@index')->name('stok_out')->middl
 Route::get('admin/stok_out_edit/{id}', 'StokOutController@edit')->name('edit_stok_out')->middleware('is_admin')->middleware('auth');
 Route::get('admin/stok_out_hapus/{id}', 'StokOutController@destroy')->name('hapus_stok_out')->middleware('is_admin')->middleware('auth');
 Route::get('admin/tambah_stok_out', 'StokOutController@create')->name('tambah_stok_out')->middleware('is_admin')->middleware('auth');
+Route::get('/admin/cari_Data_keluar', 'StokOutController@otomatis')->name('cari_produk')->middleware('is_admin')->middleware('auth');
 Route::post('admin/tambah_stok_out', 'StokOutController@store')->name('tambah_stok_out')->middleware('is_admin')->middleware('auth');
 Route::post('admin/update_stok_out', 'StokOutController@update')->name('update_stok_out')->middleware('is_admin')->middleware('auth');
 
@@ -103,7 +108,7 @@ Route::get('/laporan-stok-habis', 'LaporanController@laporanStokHabispdf')->name
 Route::get('/kasir/customer','CustomerController@index')->name('customer_kasir')->middleware('auth');
 Route::get('/transaksi/hutang','CustomerController@hutang')->name('hutang')->middleware('auth');
 Route::get('/transaksi/piutang','CustomerController@piutang')->name('piutang')->middleware('auth');
-Route::get('/transaksi/kasir', 'SalesController@index')->name('sales');
+Route::get('/transaksi/kasir', 'SalesController@index')->name('sales')->middleware('auth');
 Route::get('/transaksi/riwayat/transaksi', 'SalesController@history')->name('history');
 Route::post('submit', 'SalesController@store')->name('submit');
 Route::get('bayar', 'SalesController@bayar')->name('bayar');
