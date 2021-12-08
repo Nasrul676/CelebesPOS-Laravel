@@ -7,14 +7,15 @@
     <div class="h-100 bg-plum-plate bg-animation">
       <div class="d-flex h-100 justify-content-center align-items-center">
         <div class="mx-auto app-login-box col-md-8">
-          <div class="app-logo-inverse mx-auto mb-3"></div>
+          <div class="app-logo-inverse mx-auto mb-3">
+            <span style="font-size: 15px; color: #ffffff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Celebes POS</span>
+          </div>
           <div class="modal-dialog w-100 mx-auto">
             <div class="modal-content">
               <div class="modal-body">
                 <div class="h5 modal-title text-center">
                   <h4 class="mt-2">
-                  <div>Selamat Datang Di,</div>
-                  <div>Aplikasi Celebes POS,</div>
+                  <div>Selamat Datang</div>
                   <span>Silahkan Login Untuk Masuk Ke Dashboard.</span>
                   </h4>
                 </div>
