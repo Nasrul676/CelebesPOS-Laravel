@@ -136,7 +136,7 @@ composer dump-autoload
 
 php artisan migrate 
 
-php artisan db:seed --class CreateUsersSeeder
+php artisan db:seed --class=CreateUsersSeeder
 
 
 Step 4
