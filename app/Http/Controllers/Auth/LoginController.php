@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Session;
 use Alert;
+use Auth;
 
 class LoginController extends Controller
 {
@@ -51,12 +52,14 @@ class LoginController extends Controller
 
             if (auth()->user()->is_admin == 'admin') {
 
-                return redirect()->route('dashboard')->with('success', 'Hi :), Selamat Datang...!');
+                $name = Auth::user()->name;
 
-            }else{
+                return redirect()->route('dashboard')->with('success', 'Hi ;), Selamat Datang Kembali '.$name);
+                
+            }else {
 
-                return redirect()->route('dashboard')->with('success' , 'Hi :), Selamat Datang...!');
-
+                $name = Auth::user()->name;
+                return redirect()->route('dashboard')->with('success', 'Hi ;), Selamat Datang Kembali '.$name);
             }
 
         }else{
