@@ -119,7 +119,7 @@
             data: {'barcode':barcode},
             success : function(data) {
                 if(data.length === 0){
-                    swal('Data Tidak Ditemukan...!','pastikan barcode sudah terdaftar di produk','error');
+                    swal('Data Tidak Ditemukan...!','pastikan barcode sudah terdaftar di data produk','error');
                     $('#barcode').val('');
                     $('#nama_barang').val('');
                     $('#id').val('');
