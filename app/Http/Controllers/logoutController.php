@@ -10,12 +10,15 @@ Use Alert;
 class logoutController extends Controller
 {
     public function logoutSession(Request $request){
-         Auth::logout();
+
+        Auth::logout();
 
         $request->session()->invalidate();
 
         $request->session()->regenerateToken();
 
-        return redirect()->route('login')->with('success', 'Log Out Berhasil..!');
+        Alert::toast('Log Out Berhasil..!', 'success');
+
+        return redirect()->route('login');
     }
 }

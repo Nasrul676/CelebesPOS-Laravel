@@ -50,16 +50,17 @@ class LoginController extends Controller
         if(auth()->attempt(array('email' => $input['email'], 'password' => $input['password'])))
         {
 
+            $name = Auth::user()->name;
+
+            Alert::toast('Hi ;), Selamat Datang Kembali '.$name,'success');
+
             if (auth()->user()->is_admin == 'admin') {
 
-                $name = Auth::user()->name;
-
-                return redirect()->route('dashboard')->with('success', 'Hi ;), Selamat Datang Kembali '.$name);
+                return redirect()->route('dashboard');
                 
             }else {
 
-                $name = Auth::user()->name;
-                return redirect()->route('sales')->with('success', 'Hi ;), Selamat Datang Kembali '.$name);
+                return redirect()->route('sales');
             }
 
         }else{

@@ -24,7 +24,6 @@ Route::get('/Login/Error/404','LoginController@eror')->name('logineror');
 Route::get('/kasir', 'HomeController@index')->name('kasir');
 
 // controller dashboard
-Route::get('/admin/dashboard','DashboardController@index')->name('dashboard')->middleware('auth');
 Route::get('kasir/dashboard', 'DashboardController@kasir')->name('kasir_dashboard');
 
 // controller home
@@ -33,10 +32,11 @@ Route::get('/dashboard', 'HomeController@adminHome')->name('admin')->middleware(
 Route::post('save', 'ProductController@save')->name('save_foto');
 
 Route::middleware(['is_admin', 'auth'])->group(function () {
-
+  
   Route::prefix('admin')->group(function () {
-
+    
       // route produk
+      Route::get('/dashboard','DashboardController@index')->name('dashboard');
       Route::get('produk','ProductController@index')->name('product');
       Route::post('import/excel','ProductController@excel')->name('excel');
       Route::get('tambah_produk','ProductController@create')->name('tambah_produk');

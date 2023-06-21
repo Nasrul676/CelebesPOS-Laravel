@@ -3,7 +3,6 @@
 @section('title','Dashboard')
 @section('content')
 @include('sweetalert::alert')
-dd
 <div class="app-main__inner">
     <div class="row">
         <div class="col-md-6 col-xl-4">
