@@ -32,6 +32,7 @@
         </div>    <div class="scrollbar-sidebar">
         <div class="app-sidebar__inner">
             <ul class="vertical-nav-menu">
+                @if(Auth::user()->is_admin == "admin")
                 <li class="app-sidebar__heading">Dashboard</li>
                 <li>
                     <a href="{{route('dashboard')}}" class="@yield('sidebar')">
@@ -39,7 +40,6 @@
                         Dashboard
                     </a>
                 </li>
-                @if(Auth::user()->is_admin == "admin")
                 <li class="app-sidebar__heading">Admin</li>
                 <li>
                     <a href="#">

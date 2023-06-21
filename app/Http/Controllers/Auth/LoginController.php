@@ -59,7 +59,7 @@ class LoginController extends Controller
             }else {
 
                 $name = Auth::user()->name;
-                return redirect()->route('dashboard')->with('success', 'Hi ;), Selamat Datang Kembali '.$name);
+                return redirect()->route('sales')->with('success', 'Hi ;), Selamat Datang Kembali '.$name);
             }
 
         }else{
