@@ -47,8 +47,9 @@ class DashboardController extends Controller
             'laris' => $laris,
             'chartlarisnama' => $chartlarisnama,
             'chartlarisstok' => $chartlarisstok,
-            'data_penjualan' => $data_penjualan
-            ])->with('total_penghasilan', $totalpenghasilan);
+            'data_penjualan' => $data_penjualan,
+            'total_penghasilan' => $totalpenghasilan
+        ]);
     }
 
     /**
